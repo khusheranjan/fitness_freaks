@@ -1,4 +1,4 @@
-import { EXERCISES, SCHEMES, TEMPOS, WORKOUTS } from "./swoldier"
+import { EXERCISES, SCHEMES, TEMPOS, WORKOUTS } from "./swolder"
 const exercises = exercisesFlattener(EXERCISES)
 
 export function generateWorkout(args) {

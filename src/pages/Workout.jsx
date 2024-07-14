@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { WORKOUTS } from '../utils/swolder';
+import { WORKOUTS , SCHEMES } from '../utils/swolder';
 
-const Workout = () => {
-  const [poison, setPoison] = useState('individual');
+const Workout = (props) => {
+
+  const {poison, setPoison, muscles, setMuscles, goal, setGoal, updateWorkout} = props
+
   const [showOptions, setShowOptions] = useState(false);
-  const [musclesGroup, setMusclesGroup] = useState([])
-  const [muscles, setMuscles] = useState('')
 
   const layoutfunc = () => {
     if (poison === 'individual') {
@@ -14,7 +14,9 @@ const Workout = () => {
           {
             WORKOUTS[poison].map((mus, musind) =>{
               return(
-                <div onClick={musclestotrain} key={musind}>{mus}</div>
+                <div onClick={() =>{
+                    musclestotrain(mus)
+                }} key={musind}>{mus}</div>
               )
             })
           }
@@ -24,29 +26,33 @@ const Workout = () => {
     else return(
       Object.keys(WORKOUTS[poison]).map((mus, musind) =>{
         return(
-          <div onClick={musclestotrain} key={musind}>{mus}</div>
+          <div onClick={() =>{
+            musclestotrain(mus)
+          }} key={musind}>{mus}</div>
         )
       })
     )
   };
 
 
-  const musclestotrain= () =>{
-    setMusclesGroup([...musclesGroup, muscles])
-    console.log(musclesGroup)
-  }
+  const musclestotrain= (mus) =>{
+    setMuscles([...muscles, mus])
+}
+console.log(muscles)
+console.log(goal)
 
-  
+
   return (
+    <>
     <div>
       {
         Object.keys(WORKOUTS).map((type, typeIndex) => {
           return (
             <button
-              className='btn capitalize'
+              className='btn capitalize m-3'
               onClick={() => {
                 setPoison(type);
-                setMuscles([])
+                setMuscles ([])
                 setShowOptions(!showOptions);
               }}
               key={typeIndex}
@@ -58,6 +64,22 @@ const Workout = () => {
       }
       {showOptions ? layoutfunc() : null}
     </div>
+
+    <div>
+        {
+            Object.keys(SCHEMES).map((goals, goalsIndex) =>{
+                return(
+                    <button className='btn m-3 capitalize' onClick={() =>{
+                        setGoal(goals)
+                    }} key={goalsIndex}>{goals.replaceAll("_", " ")}</button>
+                )
+            })
+        }
+    </div>
+    <div>
+      <button className='btn' onClick={updateWorkout}>Formulate</button>
+    </div>
+    </>
   );
 };
 
