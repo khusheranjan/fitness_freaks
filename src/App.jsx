@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import Workout from './pages/Workout';
 import { generateWorkout } from './utils/function';
+import Generator from './pages/Generator';
+import Button from './components/Button';
+import Poisoncard from './components/Poisoncard';
 
 function App() {
   const [poison, setPoison] = useState('individual');
@@ -13,6 +16,7 @@ function App() {
 
     let newWorkout= generateWorkout({poison, muscles, goal})
     setWorkout(newWorkout)
+    console.log(newWorkout)
   }
 
   return (
@@ -26,7 +30,10 @@ function App() {
       setGoal={setGoal}
       updateWorkout= {updateWorkout}
        />
+       {workout && (<Generator workout= {workout} />)}
 
+       <Button text="Submit" action={updateWorkout} />
+       <Poisoncard />
     </>
   )
 }

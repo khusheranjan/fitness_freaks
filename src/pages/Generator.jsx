@@ -1,8 +1,20 @@
 import React from 'react'
+import Exercisecard from '../components/Exercisecard'
 
-const Generator = () => {
+const Generator = (props) => {
+
+    const {workout} = props
+
   return (
-    <div></div>
+    <div>
+        {
+            workout.map((exercise, index)=>{
+                return(
+                    <Exercisecard index={index} exercise={exercise} />
+                )
+            })
+        }
+    </div>
   )
 }
 
