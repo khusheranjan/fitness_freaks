@@ -3,7 +3,6 @@ import Workout from './pages/Workout';
 import { generateWorkout } from './utils/function';
 import Generator from './pages/Generator';
 import Button from './components/Button';
-import Poisoncard from './components/Poisoncard';
 import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from './components/Navbar';
 
@@ -41,7 +40,6 @@ function App() {
        {workout && (<Generator workout= {workout} />)}
 
        <Button text="Submit" action={updateWorkout} />
-       <Poisoncard />
     </>
   )
 }

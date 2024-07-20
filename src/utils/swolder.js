@@ -19,25 +19,38 @@ export const SCHEMES = {
 }
 
 export const WORKOUTS = {
-    individual: ['biceps', 'triceps', 'chest', 'back', 'shoulders', 'quads', 'hamstrings', 'glutes', 'calves', 'abs'],
+    individual: {
+      description: "Focuses on training individual muscle groups separately.",
+      groups: ['biceps', 'triceps', 'chest', 'back', 'shoulders', 'quads', 'hamstrings', 'glutes', 'calves', 'abs']
+    },
     bro_split: {
+      description: "Divides training into pushing, pulling, and leg days.",
+      groups: {
         push: ['triceps', 'chest', 'shoulders'],
         pull: ['back', 'shoulders', 'biceps'],
         legs: ['glutes', 'calves', 'hamstrings', 'quads']
+      }
     },
     bodybuilder_split: {
+      description: "Separate days for each muscle group, focusing on hypertrophy.",
+      groups: {
         chest: ['chest'],
         back: ['back'],
         shoulders: ['shoulders'],
         legs: ['glutes', 'quads', 'hamstrings', 'calves'],
         arms: ['biceps', 'triceps'],
         abs: ['abs']
+      }
     },
     upper_lower: {
+      description: "Split training into upper and lower body workouts.",
+      groups: {
         upper: ['triceps', 'biceps', 'shoulders', 'chest', 'back'],
         lower: ['quads', 'calves', 'hamstrings', 'glutes']
+      }
     }
-}
+  };
+  
 
 //write a function that flattens this thing with all the variants
 //if athome, then have to specify equipment (if required otherwise bodyweight)

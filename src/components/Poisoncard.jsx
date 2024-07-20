@@ -1,22 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Button from './Button';
 
-const Poisoncard = () => {
+const Poisoncard = ({ type, description, handleClick }) => {
   return (
-    <div className="card glass w-96">
-        <figure>
-            <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="car!" />
-        </figure>
-        <div className="card-body">
-            <h2 className="card-title">Life hack</h2>
-            <p>How to park your car at your garage?</p>
-            <div className="card-actions justify-end">
-            <button className="btn btn-primary">Learn now!</button>
-            </div>
+    <div className="card glass bg-neutral w-96">
+      <div className="card-body">
+        <h2 className="card-title capitalize">{type}</h2>
+        <p>{description}</p>
+        <div className="card-actions justify-end">
+          <Button text={type} action={handleClick} />
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Poisoncard
+export default Poisoncard;
