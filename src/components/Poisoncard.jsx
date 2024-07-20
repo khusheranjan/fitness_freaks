@@ -1,13 +1,18 @@
 import React from 'react';
 import Button from './Button';
 
-const Poisoncard = ({ type, description, handleClick }) => {
+const Poisoncard = ({ type,image, description, handleClick }) => {
   return (
-    <div className="card glass bg-neutral w-96">
+    <div className="card glass bg-neutral w-96 mb-6">
+      <figure className="px-4 pt-4">
+        <img
+          className=' h-[15rem] rounded-xl'
+          src={image}
+          alt={type} />
+      </figure>
       <div className="card-body">
-        <h2 className="card-title capitalize">{type}</h2>
         <p>{description}</p>
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-center mt-2">
           <Button text={type} action={handleClick} />
         </div>
       </div>

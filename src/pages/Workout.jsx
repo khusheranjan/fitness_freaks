@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { WORKOUTS, SCHEMES } from '../utils/swolder';
 import Poisoncard from '../components/Poisoncard';
 import Button from '../components/Button';
+import gymroom from '../assets/gymroom.jpg'
 
 const Workout = (props) => {
   const { poison, setPoison, muscles, setMuscles, goal, setGoal, updateWorkout } = props;
@@ -48,13 +49,14 @@ const Workout = (props) => {
       return
     }
     
-    if(poison !=="individual"){
+    if(poison !== "individual"){
       setMuscles([group])
       setShowOptions(false)
       return
     } 
   
-    setMuscles([...muscles, group]);
+    setMuscles([...muscles, group])
+
     if(muscles.length === 2) {
       setShowOptions(false)
     }
@@ -71,26 +73,33 @@ const Workout = (props) => {
 
   return (
     <>
-      <div className='grid grid-cols-2 justify-items-center gap-y-10'>
+      <div className='absolute'>
+        <img src={gymroom} alt="" />
+      </div>
+      <div className='flex flex-wrap mt-6 relative'>
         {Object.keys(WORKOUTS).map((type, typeIndex) => (
-          <Poisoncard
-            key={typeIndex}
-            type={type.replaceAll('_', ' ')}
-            description={WORKOUTS[type].description}
-            handleClick={() => handleWorkoutTypeClick(type)}
-          />
+          <div className='mx-auto' key={typeIndex}>
+            <Poisoncard
+              type={type.replaceAll('_', ' ')}
+              image={WORKOUTS[type].image}
+              description={WORKOUTS[type].description}
+              handleClick={() => handleWorkoutTypeClick(type)}
+            />
+          </div>
         ))}
       </div>
       
       <div>{showOptions && layoutfunc()}</div>
 
-      <div>
+      <div className='flex'>
         {Object.keys(SCHEMES).map((goals, goalsIndex) => (
-          <Button
-            key={goalsIndex}
-            text={goals.replaceAll('_', ' ')}
-            action={() => setGoal(goals)}
-          />
+          <div key={goalsIndex}>
+            <Button
+              key={goalsIndex}
+              text={goals.replaceAll('_', ' ')}
+              action={() => setGoal(goals)}
+            />
+          </div>
         ))}
       </div>
 

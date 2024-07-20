@@ -1,11 +1,11 @@
 import React from 'react'
 import Login from './Login'
-import logo from '/logos.svg'
+import logo from '/logo2.svg'
 
 const Navbar = () => {
   return (
     <div className=''>
-        <div className="navbar text-white bg-black">
+        <div className="navbar text-white">
             <div className="navbar-start">
 
                 <div className="dropdown">
@@ -30,7 +30,7 @@ const Navbar = () => {
                     <li><a>Features</a></li>
                 </ul>
                 </div>
-                <img className='w-12 ml-2 ' src={logo} alt="" />
+                <img className='w-8 ml-2 ' src={logo} alt="" />
                 <a className="btn btn-ghost py-1 text-2xl hidden lg:block">Fitness Freaks</a>
             </div>
 

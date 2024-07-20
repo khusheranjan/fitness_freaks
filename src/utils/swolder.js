@@ -1,3 +1,8 @@
+import ind from '../assets/ind.png'
+import bs from '../assets/bs.webp'
+import bbs from '../assets/bbs.png'
+import ul from '../assets/ul.png'
+
 export const TEMPOS = ['3 0 2', '2 2 2', '4 1 1', '5 3 1', '1 0 1', '3 2 1', '2 1 1']
 
 export const SCHEMES = {
@@ -20,19 +25,20 @@ export const SCHEMES = {
 
 export const WORKOUTS = {
     individual: {
-      description: "Focuses on training individual muscle groups separately.",
-      groups: ['biceps', 'triceps', 'chest', 'back', 'shoulders', 'quads', 'hamstrings', 'glutes', 'calves', 'abs']
+      groups: ['biceps', 'triceps', 'chest', 'back', 'shoulders', 'quads', 'hamstrings', 'glutes', 'calves', 'abs'],
+      description: 'Target specific muscles for a balanced workout.',
+      image: ind,
     },
     bro_split: {
-      description: "Divides training into pushing, pulling, and leg days.",
       groups: {
         push: ['triceps', 'chest', 'shoulders'],
         pull: ['back', 'shoulders', 'biceps'],
         legs: ['glutes', 'calves', 'hamstrings', 'quads']
-      }
+      },
+      description: 'Focus on different muscle groups on different days.',
+      image: bs,
     },
     bodybuilder_split: {
-      description: "Separate days for each muscle group, focusing on hypertrophy.",
       groups: {
         chest: ['chest'],
         back: ['back'],
@@ -40,16 +46,20 @@ export const WORKOUTS = {
         legs: ['glutes', 'quads', 'hamstrings', 'calves'],
         arms: ['biceps', 'triceps'],
         abs: ['abs']
-      }
+      },
+      description: 'Build muscle mass with a bodybuilder routine.',
+      image: bbs,
     },
     upper_lower: {
-      description: "Split training into upper and lower body workouts.",
       groups: {
         upper: ['triceps', 'biceps', 'shoulders', 'chest', 'back'],
         lower: ['quads', 'calves', 'hamstrings', 'glutes']
-      }
+      },
+      description: 'Combine upper and lower body workouts for balance.',
+      image: ul,
     }
   };
+  
   
 
 //write a function that flattens this thing with all the variants

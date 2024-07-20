@@ -10,7 +10,9 @@ const Generator = (props) => {
         {
             workout.map((exercise, index)=>{
                 return(
-                    <Exercisecard index={index} exercise={exercise} />
+                    <div className='m-6' key={index}>
+                        <Exercisecard index={index} exercise={exercise} />
+                    </div>
                 )
             })
         }
