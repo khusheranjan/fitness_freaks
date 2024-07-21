@@ -3,10 +3,18 @@ import { WORKOUTS, SCHEMES } from '../utils/swolder';
 import Poisoncard from '../components/Poisoncard';
 import Button from '../components/Button';
 import gymroom from '../assets/gymroom.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const Workout = (props) => {
   const { poison, setPoison, muscles, setMuscles, goal, setGoal, updateWorkout } = props;
   const [showOptions, setShowOptions] = useState(false);
+  const navigate = useNavigate()
+  
+  const handleUpdateWorkout= ()=>{
+    updateWorkout()
+    navigate('/generator')
+  }
+
 
   const layoutfunc = () => {
     if (poison === 'individual') {
@@ -38,6 +46,7 @@ const Workout = (props) => {
     }
   };
 
+
   const musclestotrain = (group) => {
     
     if (muscles.includes(group)) {
@@ -62,8 +71,6 @@ const Workout = (props) => {
     }
   };
 
-  console.log(muscles);
-  console.log(goal);
 
   const handleWorkoutTypeClick = (type) => {
     setPoison(type);
@@ -103,7 +110,7 @@ const Workout = (props) => {
         ))}
       </div>
 
-      <Button text="Formulate" action={updateWorkout} />
+      <Button text="Formulate" action={handleUpdateWorkout} />
     </>
   );
 };

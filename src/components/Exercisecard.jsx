@@ -10,7 +10,7 @@ const Exercisecard = (props) => {
     <div className="card bg-neutral text-primary-content w-[70%] mx-auto">
       <div className="card-body">
         <div className="card-title capitalize">
-          <h2>0{index}</h2>
+          <h2>0{index+1}</h2>
           <h2>{exercise.name.replaceAll('_', ' ')}</h2>
         </div>
         <h3 className='capitalize'>{exercise.muscles.join(' ')}</h3>

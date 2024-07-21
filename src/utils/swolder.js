@@ -1,6 +1,6 @@
 import ind from '../assets/ind.png'
-import bs from '../assets/bs.webp'
-import bbs from '../assets/bbs.png'
+import bs from '../assets/bs.jpg'
+import bbs from '../assets/bbs.webp'
 import ul from '../assets/ul.png'
 
 export const TEMPOS = ['3 0 2', '2 2 2', '4 1 1', '5 3 1', '1 0 1', '3 2 1', '2 1 1']

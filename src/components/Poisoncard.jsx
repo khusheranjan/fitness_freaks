@@ -3,7 +3,7 @@ import Button from './Button';
 
 const Poisoncard = ({ type,image, description, handleClick }) => {
   return (
-    <div className="card glass bg-neutral w-96 mb-6">
+    <div className="card glass bg-neutral w-96 mb-6 text-gray-100">
       <figure className="px-4 pt-4">
         <img
           className=' h-[15rem] rounded-xl'
