@@ -16,12 +16,10 @@ export default {
         mytheme: {
           "secondary": "#FBB002",
           "accent": "#FE6100",
-          "neutral": "#3A1D16",
+          "neutral": "#2D0B04",
           "base-100": "#000000"
         },        
       },
-      "dark",
-      "cupcake",
     ],
   },
 }
