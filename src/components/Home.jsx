@@ -6,10 +6,26 @@ import about from '../assets/cool.jpg'
 import barbell from '../assets/barbell.svg'
 import target from '../assets/target.svg'
 import muscle from '../assets/muscle.svg'
-
+import workout from '../assets/Workout.svg'
+import Footer from './Footer'
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
+
+  const { isAuthenticated, loginWithPopup } = useAuth0();
+  const navigate = useNavigate();
+
+  const handleGetStartedClick = () => {
+    if (isAuthenticated) {
+      navigate('/workout');
+    } else {
+      loginWithPopup();
+    }
+  };
+
+
   return (
     <>
       <div
@@ -28,12 +44,14 @@ function Home() {
             Discover the power of consistent training and achieve your fitness goals with Fitness Freaks.
             </p>
             <button className="btn btn-lg rounded-full bg-gradient-to-t from-[#d64000] to-[#eba80d] border-none text-gray-100 
-            hover:scale-110">Get Started</button>
+            hover:scale-110"
+            onClick={handleGetStartedClick}
+            >Get Started!</button>
           </div>
         </div>
       </div>
 
-      <div class=" flex justify-center py-24 bg-neutral">
+      <div id='about' class=" flex justify-center pt-24 pb-28 bg-neutral">
         <div class="ml-24">
           <div className='absolute w-[33rem] h-[22rem] blur-lg  bg-gradient-to-t from-[#FD6A00] to-[#FBA701]'></div>
           <img className='relative w-[80%] left-12 top-10 rounded-2xl' src={about} alt="Fitness Freaks Workout"/>
@@ -47,28 +65,36 @@ function Home() {
         </div>
       </div>
 
+      <div id='features' className='mt-14 mb-20'>
+        <div className=' flex flex-col items-center'>
+          <img className='max-w-7' src={logo} alt="" />
+          <h1 className='font-semibold text-3xl' >Why Choose Us!</h1>
+        </div>
+        <div className='flex justify-evenly my-16'>
+          <div className='w-72 h-96 bg-neutral rounded-3xl flex flex-col items-center pt-12 feature-card'>
+            <img className='w-12' src={muscle} alt="" />
+            <h1 className='mt-7 mb-4 text-lg font-semibold'>Tailored Body Shape Plans</h1>
+            <p className='mx-6 max-w-[75%] text-center'>Whether you're looking to bulk up, slim down, or achieve a specific physique, we've got you covered with exercises that target your goals and ambitions effectively.</p>
+          </div>
+          <div className='w-72 h-96 bg-neutral rounded-3xl flex flex-col items-center pt-11 feature-card'>
+            <img className='w-14' src={target} alt="" />
+            <h1 className='mt-7 mb-4 text-lg font-semibold'>Muscle-Specific Workouts</h1>
+            <p className='mx-6 max-w-[75%] text-center'>Say goodbye to one-size-fits-all routines! Focus on each muscle with precision. We generate specialized exercises to help you build strength and tone in areas of your choice.</p>
+          </div>
+          <div className='w-72 h-96 bg-neutral rounded-3xl flex flex-col items-center pt-12 feature-card'>
+            <img className='w-16' src={workout} alt="" />
+            <h1 className='mt-4 mb-4 text-lg font-semibold'>Extensive Exercise Library</h1>
+            <p className='mx-6 max-w-[75%] text-center'>Explore schemes that keep your journey exciting and dynamic. From high-intensity training to steady-state cardio, our website offers schemes to match all of your preferences.</p>
+          </div>
+          <div className='w-72 h-96 bg-neutral rounded-3xl flex flex-col items-center pt-14 feature-card'>
+            <img className='w-16' src={barbell} alt="" />
+            <h1 className='mt-9 mb-4 text-lg font-semibold'>Diverse Workout Schemes</h1>
+            <p className='mx-6 max-w-[75%] text-center'>Keep your routine fresh and challenging. Our extensive library includes exercises for all fitness levels, so you always have new moves to include into your workouts..</p>
+          </div>
+        </div>
+      </div>
       <div>
-        <div>
-          <img src={logo} alt="" />
-          <h1>Fitness Freaks</h1>
-        </div>
-        <div>
-          <div>
-            <img src={barbell} alt="" />
-            <h1></h1>
-            <p></p>
-          </div>
-          <div>
-            <img src={target} alt="" />
-            <h1></h1>
-            <p></p>
-          </div>
-          <div>
-            <img src={muscle} alt="" />
-            <h1></h1>
-            <p></p>
-          </div>
-        </div>
+        <Footer />
       </div>
     </>
   )

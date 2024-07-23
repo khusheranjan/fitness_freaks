@@ -13,9 +13,7 @@ function App() {
   const [goal, setGoal] = useState('');
   const [workout, setWorkout] = useState(null);
 
-  const { user, loginWithRedirect } = useAuth0();
-  console.log(user);
-
+  const { user, loginWithPopup, isAuthenticated, logout } = useAuth0();
   const updateWorkout = () => {
     if (muscles.length < 1) return;
 
