@@ -9,17 +9,20 @@ export const SCHEMES = {
     strength_power: {
         repRanges: [3, 8],
         ratio: [3, 2],
-        rest: [120, 60]
+        rest: [120, 60],
+        description: "This scheme focuses on maximizing your raw strength and power. It involves heavy lifting with lower repetitions and higher rest periods. Ideal for those looking to increase their overall muscle strength and explosive power, strength power workouts typically include compound movements like deadlifts, squats, and bench presses."
     },
     growth_hypertrophy: {
         repRanges: [8, 15],
         ratio: [2, 3],
-        rest: [90, 60]
+        rest: [90, 60],
+        description: "This scheme focuses on muscle growth and increasing muscle mass. It involves moderate to heavy lifting with moderate repetitions and controlled rest periods. Aimed at those looking to achieve muscle size and definition, growth hypertrophy workouts often incorporate isolation exercises, progressive overload, and techniques like drop sets and supersets."
     },
     cardiovascular_endurance: {
         repRanges: [12, 30],
         ratio: [2, 4],
-        rest: [60, 45]
+        rest: [60, 45],
+        description: "This scheme is designed to enhance your stamina and cardiovascular health. It involves moderate to high-intensity exercises with higher repetitions and shorter rest periods. Perfect for improving heart and lung capacity, cardiovascular endurance workouts include activities like running, cycling, high-intensity interval training (HIIT), and other aerobic exercises."
     }
 }
 

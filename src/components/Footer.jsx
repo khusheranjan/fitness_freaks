@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer bg-neutral items-center p-4 px-16">
       <aside className="grid-flow-col items-center">
         <img className='w-10' src={logo} alt="logo" />
-        <h1 className='text-lg'>Copyright © {new Date().getFullYear()} - All right reserved</h1>
+        <h1>Copyright © {new Date().getFullYear()} - All right reserved</h1>
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <a href="https://github.com/khusheranjan" target="_blank" rel="noopener noreferrer">

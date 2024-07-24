@@ -6,6 +6,7 @@ import Workout from './pages/Workout';
 import Generator from './pages/Generator';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 function App() {
   const [poison, setPoison] = useState('individual');
@@ -43,6 +44,7 @@ function App() {
             workout && <Generator workout={workout} />
           } />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );
